@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brand: "Dell",
             price: 28990000,
             category: "Ultrabook",
+            quantity: 15,
             image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&w=500&q=80",
             specs: {
                 cpu: "Intel Core i5-1230U",
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brand: "HP",
             price: 22500000,
             category: "Gaming",
+            quantity: 8,
             image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&w=500&q=80",
             specs: {
                 cpu: "Intel Core i5-11300H",
@@ -76,6 +78,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Cancel button
         cancelBtn?.addEventListener('click', closeProductForm);
+        
+        // Settings forms
+        document.getElementById('contactForm')?.addEventListener('submit', handleContactSubmit);
+        document.getElementById('socialForm')?.addEventListener('submit', handleSocialSubmit);
         
         // Close modal buttons
         closeModalBtns.forEach(btn => {
@@ -136,12 +142,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Show dashboard
     function showDashboard() {
         if (loginContainer && adminDashboard) {
             loginContainer.style.display = 'none';
             adminDashboard.style.display = 'block';
             loadProducts();
+            loadSettings();
         }
     }
 
@@ -161,6 +167,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${laptop.name}</td>
                 <td>${laptop.brand}</td>
                 <td>${formatPrice(laptop.price)}</td>
+                <td>
+                    <span class="quantity-badge ${laptop.quantity < 5 ? 'low-stock' : ''}">
+                        ${laptop.quantity || 0}
+                    </span>
+                </td>
                 <td>${laptop.category}</td>
                 <td class="product-actions">
                     <button class="btn-small btn-edit" onclick="editProduct(${laptop.id})" title="Chỉnh sửa">
@@ -203,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('productName').value = laptop.name;
         document.getElementById('productBrand').value = laptop.brand;
         document.getElementById('productPrice').value = laptop.price;
+        document.getElementById('productQuantity').value = laptop.quantity || 0;
         document.getElementById('productCategory').value = laptop.category;
         document.getElementById('productImage').value = laptop.image || '';
         document.getElementById('productCpu').value = laptop.specs.cpu || '';
@@ -233,6 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: document.getElementById('productName').value,
             brand: document.getElementById('productBrand').value,
             price: parseInt(document.getElementById('productPrice').value),
+            quantity: parseInt(document.getElementById('productQuantity').value) || 0,
             category: document.getElementById('productCategory').value,
             image: document.getElementById('productImage').value,
             specs: {
@@ -315,4 +328,68 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize the admin panel
     init();
+
+    // Navigation functions
+    window.showSection = function(sectionName) {
+        // Hide all sections
+        document.getElementById('productsSection').style.display = 'none';
+        document.getElementById('settingsSection').style.display = 'none';
+        
+        // Show selected section
+        if (sectionName === 'products') {
+            document.getElementById('productsSection').style.display = 'block';
+            loadProducts();
+        } else if (sectionName === 'settings') {
+            document.getElementById('settingsSection').style.display = 'block';
+            loadSettings();
+        }
+        
+        // Update menu active state
+        document.querySelectorAll('.menu-link').forEach(link => link.classList.remove('active'));
+        event.target.classList.add('active');
+    };
+
+    // Load settings from localStorage
+    function loadSettings() {
+        const contactInfo = JSON.parse(localStorage.getItem('contactInfo') || '{}');
+        const socialLinks = JSON.parse(localStorage.getItem('socialLinks') || '{}');
+        
+        // Load contact info
+        if (contactInfo.phone) document.getElementById('contactPhone').value = contactInfo.phone;
+        if (contactInfo.email) document.getElementById('contactEmail').value = contactInfo.email;
+        if (contactInfo.address) document.getElementById('contactAddress').value = contactInfo.address;
+        
+        // Load social links
+        if (socialLinks.facebook) document.getElementById('facebookLink').value = socialLinks.facebook;
+        if (socialLinks.zalo) document.getElementById('zaloLink').value = socialLinks.zalo;
+        if (socialLinks.tiktok) document.getElementById('tiktokLink').value = socialLinks.tiktok;
+    }
+
+    // Handle contact form submit
+    function handleContactSubmit(e) {
+        e.preventDefault();
+        
+        const contactInfo = {
+            phone: document.getElementById('contactPhone').value,
+            email: document.getElementById('contactEmail').value,
+            address: document.getElementById('contactAddress').value
+        };
+        
+        localStorage.setItem('contactInfo', JSON.stringify(contactInfo));
+        showAlert('Cập nhật thông tin liên hệ thành công!', 'success');
+    }
+
+    // Handle social form submit
+    function handleSocialSubmit(e) {
+        e.preventDefault();
+        
+        const socialLinks = {
+            facebook: document.getElementById('facebookLink').value,
+            zalo: document.getElementById('zaloLink').value,
+            tiktok: document.getElementById('tiktokLink').value
+        };
+        
+        localStorage.setItem('socialLinks', JSON.stringify(socialLinks));
+        showAlert('Cập nhật liên kết mạng xã hội thành công!', 'success');
+    }
 });

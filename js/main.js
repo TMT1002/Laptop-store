@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brand: "Dell",
             price: 28990000,
             category: "Ultrabook",
+            quantity: 15,
             image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&w=500&q=80",
             specs: {
                 cpu: "Intel Core i5-1230U",
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brand: "HP",
             price: 22500000,
             category: "Gaming",
+            quantity: 8,
             image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&w=500&q=80",
             specs: {
                 cpu: "Intel Core i5-11300H",
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brand: "Lenovo",
             price: 18990000,
             category: "Văn phòng",
+            quantity: 12,
             image: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&w=500&q=80",
             specs: {
                 cpu: "AMD Ryzen 5 5625U",
@@ -59,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brand: "Asus",
             price: 35990000,
             category: "Gaming",
+            quantity: 6,
             image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&w=500&q=80",
             specs: {
                 cpu: "AMD Ryzen 7 5800H",
@@ -76,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brand: "MSI",
             price: 42000000,
             category: "Đồ họa",
+            quantity: 3,
             image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&w=500&q=80",
             specs: {
                 cpu: "Intel Core i7-10875H",
@@ -93,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brand: "Acer",
             price: 14990000,
             category: "Văn phòng",
+            quantity: 20,
             image: "https://images.unsplash.com/photo-1484788984921-03950022c9ef?ixlib=rb-4.0.3&w=500&q=80",
             specs: {
                 cpu: "Intel Core i3-1215U",
@@ -110,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brand: "MSI",
             price: 19990000,
             category: "Gaming",
+            quantity: 10,
             image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&w=500&q=80",
             specs: {
                 cpu: "Intel Core i5-11400H",
@@ -127,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
             brand: "Asus",
             price: 24990000,
             category: "Ultrabook",
+            quantity: 7,
             image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&w=500&q=80",
             specs: {
                 cpu: "Intel Core i5-12500H",
@@ -160,6 +168,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function init() {
         renderProducts(currentLaptops);
         setupEventListeners();
+        loadContactInfo();
+        loadSocialLinks();
     }
 
     // Setup event listeners
@@ -383,4 +393,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize the page
     init();
+
+    // Load contact info from localStorage
+    function loadContactInfo() {
+        const contactInfo = JSON.parse(localStorage.getItem('contactInfo') || '{}');
+        
+        if (contactInfo.phone) {
+            const phoneEl = document.querySelector('.footer-section p:has(i.fa-phone)');
+            if (phoneEl) phoneEl.innerHTML = `<i class="fas fa-phone"></i> ${contactInfo.phone}`;
+        }
+        
+        if (contactInfo.email) {
+            const emailEl = document.querySelector('.footer-section p:has(i.fa-envelope)');
+            if (emailEl) emailEl.innerHTML = `<i class="fas fa-envelope"></i> ${contactInfo.email}`;
+        }
+        
+        if (contactInfo.address) {
+            const addressEl = document.querySelector('.footer-section p:has(i.fa-map-marker-alt)');
+            if (addressEl) addressEl.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${contactInfo.address}`;
+        }
+    }
+
+    // Load social links from localStorage
+    function loadSocialLinks() {
+        const socialLinks = JSON.parse(localStorage.getItem('socialLinks') || '{}');
+        
+        if (socialLinks.facebook) {
+            const fbLink = document.querySelector('a:has(i.fa-facebook)');
+            if (fbLink) fbLink.href = socialLinks.facebook;
+        }
+        
+        if (socialLinks.zalo) {
+            const zaloLink = document.querySelector('a:has(i.fa-comment-dots)');
+            if (zaloLink) zaloLink.href = socialLinks.zalo;
+        }
+        
+        if (socialLinks.tiktok) {
+            const tiktokLink = document.querySelector('a:has(i.fa-tiktok)');
+            if (tiktokLink) tiktokLink.href = socialLinks.tiktok;
+        }
+    }
 });
