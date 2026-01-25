@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Store - Thông tin sản phẩm laptop</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <i class="fas fa-laptop"></i>
+                    <h1>Laptop Store</h1>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#" class="nav-link active">Trang chủ</a></li>
+                        <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+                        <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+                        <li><a href="admin.html" class="nav-link admin-link">Quản trị</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Tìm kiếm laptop phù hợp với nhu cầu của bạn</h2>
+                <p>Khám phá bộ sưu tập laptop đa dạng với thông tin chi tiết và cập nhật</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filter -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm laptop...">
+                </div>
+                <div class="filter-group">
+                    <select id="brandFilter">
+                        <option value="">Tất cả thương hiệu</option>
+                        <option value="Dell">Dell</option>
+                        <option value="HP">HP</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="Asus">Asus</option>
+                        <option value="MSI">MSI</option>
+                        <option value="Acer">Acer</option>
+                    </select>
+                    <select id="priceFilter">
+                        <option value="">Tất cả giá</option>
+                        <option value="0-15">Dưới 15 triệu</option>
+                        <option value="15-25">15-25 triệu</option>
+                        <option value="25-35">25-35 triệu</option>
+                        <option value="35+">Trên 35 triệu</option>
+                    </select>
+                    <select id="categoryFilter">
+                        <option value="">Tất cả loại</option>
+                        <option value="Gaming">Gaming</option>
+                        <option value="Văn phòng">Văn phòng</option>
+                        <option value="Đồ họa">Đồ họa</option>
+                        <option value="Ultrabook">Ultrabook</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <main class="main-content">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <p>Không tìm thấy sản phẩm nào phù hợp với tiêu chí tìm kiếm.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>Về chúng tôi</h2>
+            <p>Chúng tôi cung cấp thông tin chi tiết và cập nhật về các dòng laptop mới nhất trên thị trường. Với giao diện thân thiện và dễ sử dụng, bạn có thể dễ dàng tìm kiếm và so sánh thông tin các sản phẩm laptop phù hợp với nhu cầu của mình.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Liên hệ với chúng tôi</h3>
+                    <p><i class="fas fa-phone"></i> 0123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@laptopstore.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận 1, TP.HCM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Theo dõi chúng tôi</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i> Facebook</a>
+                        <a href="#" class="social-link"><i class="fas fa-comment-dots"></i> Zalo</a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i> TikTok</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Laptop Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
