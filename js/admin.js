@@ -130,8 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle logout
     function handleLogout() {
         localStorage.removeItem('adminLoggedIn');
-        showLogin();
         showAlert('Đăng xuất thành công!', 'success');
+        
+        // Redirect to home page after a short delay
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 1000);
     }
 
     // Show login screen
