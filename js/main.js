@@ -419,17 +419,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const socialLinks = JSON.parse(localStorage.getItem('socialLinks') || '{}');
         
         if (socialLinks.facebook) {
-            const fbLink = document.querySelector('a:has(i.fa-facebook)');
+            const fbLink = document.getElementById('facebookLink');
             if (fbLink) fbLink.href = socialLinks.facebook;
         }
         
         if (socialLinks.zalo) {
-            const zaloLink = document.querySelector('a:has(i.fa-comment-dots)');
+            const zaloLink = document.getElementById('zaloLink');
             if (zaloLink) zaloLink.href = socialLinks.zalo;
         }
         
         if (socialLinks.tiktok) {
-            const tiktokLink = document.querySelector('a:has(i.fa-tiktok)');
+            const tiktokLink = document.getElementById('tiktokLink');
             if (tiktokLink) tiktokLink.href = socialLinks.tiktok;
         }
     }
