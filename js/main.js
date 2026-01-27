@@ -4,18 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const laptopsData = [
         {
             id: 1,
-            name: "Dell XPS 13 9315",
+            name: "Dell Latitude 5320",
             brand: "Dell",
-            price: 28990000,
+            price: 5950000,
             category: "Ultrabook",
-            quantity: 15,
+            quantity: 5,
             image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&w=500&q=80",
             specs: {
-                cpu: "Intel Core i5-1230U",
-                ram: "8GB LPDDR5",
+                cpu: "Intel Core i5-11",
+                ram: "8GB LPDDR4",
                 storage: "256GB SSD",
                 gpu: "Intel Iris Xe",
-                screen: "13.4\" FHD+ (1920x1200)",
+                screen: "13.3\" FHD (1920x1080)",
                 weight: "1.17 kg"
             },
             description: "Laptop siêu mỏng nhẹ với thiết kế premium, hiệu năng vượt trội cho công việc văn phòng và học tập."
