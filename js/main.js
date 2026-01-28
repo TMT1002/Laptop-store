@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "price": 6250000,
         "category": "Laptop phổ thông",
         "quantity": 2,
-        "image": "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?w=500&q=80",
+        "image": "https://res.cloudinary.com/dp8glqsir/image/upload/v1769525895/z7191080894590_fa266823caafbcd35b785d7c5464f4dd_tznxyk.jpg",
         "specs": {
             "cpu": "i5-1145G7",
             "ram": "16GB",
