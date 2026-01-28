@@ -2,150 +2,115 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Sample laptop data (moved to external file)
     const laptopsData = [
-        {
-            id: 1,
-            name: "Dell Latitude 5320",
-            brand: "Dell",
-            price: 5950000,
-            category: "Ultrabook",
-            quantity: 5,
-            image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&w=500&q=80",
-            specs: {
-                cpu: "Intel Core i5-11",
-                ram: "8GB LPDDR4",
-                storage: "256GB SSD",
-                gpu: "Intel Iris Xe",
-                screen: "13.3\" FHD (1920x1080)",
-                weight: "1.17 kg"
-            },
-            description: "Laptop siêu mỏng nhẹ với thiết kế premium, hiệu năng vượt trội cho công việc văn phòng và học tập."
+    {
+        id: 1,
+        name: "Dell Vostro 15",
+        brand: "Dell",
+        price: 3500000,
+        category: "Laptop phổ thông",
+        quantity: 10,
+        image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80",
+        specs: {
+            cpu: "Intel Core i5-7200U",
+            ram: "8GB DDR4",
+            storage: "256GB SSD",
+            gpu: "Intel HD Graphics",
+            screen: "15.6\" HD",
+            weight: "2.0 kg"
         },
-        {
-            id: 2,
-            name: "HP Pavilion Gaming 15-dk2055wm",
-            brand: "HP",
-            price: 22500000,
-            category: "Gaming",
-            quantity: 8,
-            image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&w=500&q=80",
-            specs: {
-                cpu: "Intel Core i5-11300H",
-                ram: "8GB DDR4",
-                storage: "512GB SSD",
-                gpu: "NVIDIA GTX 1650",
-                screen: "15.6\" FHD (1920x1080) 144Hz",
-                weight: "2.23 kg"
-            },
-            description: "Laptop gaming tầm trung với màn hình 144Hz, card đồ họa rời mang lại trải nghiệm gaming mượt mà."
+        description: "Laptop màn hình lớn, giá rẻ, phù hợp nhu cầu học tập và văn phòng cơ bản."
+    },
+    {
+        id: 2,
+        name: "Dell Latitude 5300",
+        brand: "Dell",
+        price: 3650000,
+        category: "Ultrabook",
+        quantity: 8,
+        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&q=80",
+        specs: {
+            cpu: "Intel Core i5-8365U",
+            ram: "8GB DDR4",
+            storage: "256GB SSD",
+            gpu: "Intel UHD 620",
+            screen: "13.3\" FHD",
+            weight: "1.25 kg"
         },
-        {
-            id: 3,
-            name: "Lenovo ThinkPad E14 Gen 4",
-            brand: "Lenovo",
-            price: 18990000,
-            category: "Văn phòng",
-            quantity: 12,
-            image: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&w=500&q=80",
-            specs: {
-                cpu: "AMD Ryzen 5 5625U",
-                ram: "8GB DDR4",
-                storage: "256GB SSD",
-                gpu: "AMD Radeon Graphics",
-                screen: "14\" FHD (1920x1080) IPS",
-                weight: "1.64 kg"
-            },
-            description: "Laptop doanh nhân với độ bền cao, bàn phím thoải mái và thời lượng pin dài."
+        description: "Thiết kế nhỏ gọn, hiệu năng ổn định, phù hợp cho sinh viên và nhân viên văn phòng."
+    },
+    {
+        id: 3,
+        name: "Dell Latitude 5320 (i5)",
+        brand: "Dell",
+        price: 6250000,
+        category: "Ultrabook",
+        quantity: 5,
+        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&q=80",
+        specs: {
+            cpu: "Intel Core i5-1145G7",
+            ram: "16GB LPDDR4",
+            storage: "256GB SSD",
+            gpu: "Intel Iris Xe",
+            screen: "13.3\" FHD (1920x1080)",
+            weight: "1.17 kg"
         },
-        {
-            id: 4,
-            name: "Asus ROG Strix G15 G513",
-            brand: "Asus",
-            price: 35990000,
-            category: "Gaming",
-            quantity: 6,
-            image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&w=500&q=80",
-            specs: {
-                cpu: "AMD Ryzen 7 5800H",
-                ram: "16GB DDR4",
-                storage: "512GB SSD",
-                gpu: "NVIDIA RTX 3060",
-                screen: "15.6\" FHD (1920x1080) 144Hz",
-                weight: "2.30 kg"
-            },
-            description: "Laptop gaming cao cấp với RTX 3060, hiệu năng mạnh mẽ cho các game AAA và công việc sáng tạo."
+        description: "Laptop siêu mỏng nhẹ, RAM lớn, hiệu năng vượt trội cho công việc văn phòng và học tập."
+    },
+    {
+        id: 4,
+        name: "Dell Latitude 5320 (i7)",
+        brand: "Dell",
+        price: 7000000,
+        category: "Ultrabook cao cấp",
+        quantity: 4,
+        image: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?w=500&q=80",
+        specs: {
+            cpu: "Intel Core i7-1185G7",
+            ram: "16GB LPDDR4",
+            storage: "256GB SSD",
+            gpu: "Intel Iris Xe",
+            screen: "13.3\" FHD cảm ứng",
+            weight: "1.20 kg"
         },
-        {
-            id: 5,
-            name: "MSI Creator 15 A10SFS",
-            brand: "MSI",
-            price: 42000000,
-            category: "Đồ họa",
-            quantity: 3,
-            image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&w=500&q=80",
-            specs: {
-                cpu: "Intel Core i7-10875H",
-                ram: "32GB DDR4",
-                storage: "1TB SSD",
-                gpu: "NVIDIA RTX 2070 Super",
-                screen: "15.6\" 4K UHD (3840x2160)",
-                weight: "2.10 kg"
-            },
-            description: "Laptop workstation dành cho creator với màn hình 4K, cấu hình mạnh mẽ cho render video và thiết kế đồ họa."
+        description: "Phiên bản cao cấp với màn hình cảm ứng, hiệu năng mạnh mẽ cho công việc sáng tạo."
+    },
+    {
+        id: 5,
+        name: "Dell Latitude 5430",
+        brand: "Dell",
+        price: 7500000,
+        category: "Business Laptop",
+        quantity: 6,
+        image: "https://images.unsplash.com/photo-1587202372775-98907f1e0a57?w=500&q=80",
+        specs: {
+            cpu: "Intel Core i5-1245U (Gen 12)",
+            ram: "16GB DDR4",
+            storage: "256GB SSD",
+            gpu: "Intel Iris Xe",
+            screen: "14\" FHD",
+            weight: "1.35 kg"
         },
-        {
-            id: 6,
-            name: "Acer Aspire 5 A515-57",
-            brand: "Acer",
-            price: 14990000,
-            category: "Văn phòng",
-            quantity: 20,
-            image: "https://images.unsplash.com/photo-1484788984921-03950022c9ef?ixlib=rb-4.0.3&w=500&q=80",
-            specs: {
-                cpu: "Intel Core i3-1215U",
-                ram: "4GB DDR4",
-                storage: "256GB SSD",
-                gpu: "Intel UHD Graphics",
-                screen: "15.6\" FHD (1920x1080)",
-                weight: "1.70 kg"
-            },
-            description: "Laptop giá rẻ phù hợp cho học sinh, sinh viên với hiệu năng đủ dùng cho các tác vụ cơ bản."
+        description: "Laptop doanh nhân với CPU thế hệ 12, hiệu năng mạnh mẽ cho công việc chuyên nghiệp."
+    },
+    {
+        id: 6,
+        name: "HP ProBook 430 G8",
+        brand: "HP",
+        price: 5800000,
+        category: "Ultrabook",
+        quantity: 7,
+        image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80",
+        specs: {
+            cpu: "Intel Core i5-1135G7",
+            ram: "16GB DDR4",
+            storage: "256GB SSD",
+            gpu: "Intel Iris Xe",
+            screen: "13.3\" FHD",
+            weight: "1.28 kg"
         },
-        {
-            id: 7,
-            name: "MSI GF63 Thin 11UC",
-            brand: "MSI",
-            price: 19990000,
-            category: "Gaming",
-            quantity: 10,
-            image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&w=500&q=80",
-            specs: {
-                cpu: "Intel Core i5-11400H",
-                ram: "8GB DDR4",
-                storage: "256GB SSD",
-                gpu: "NVIDIA RTX 3050",
-                screen: "15.6\" FHD (1920x1080) 144Hz",
-                weight: "1.86 kg"
-            },
-            description: "Gaming laptop mỏng nhẹ với giá tốt, phù hợp cho game thủ mới bắt đầu và sinh viên."
-        },
-        {
-            id: 8,
-            name: "Asus ZenBook 14 UX3402",
-            brand: "Asus",
-            price: 24990000,
-            category: "Ultrabook",
-            quantity: 7,
-            image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&w=500&q=80",
-            specs: {
-                cpu: "Intel Core i5-12500H",
-                ram: "8GB LPDDR5",
-                storage: "512GB SSD",
-                gpu: "Intel Iris Xe",
-                screen: "14\" 2.8K (2880x1800) OLED",
-                weight: "1.39 kg"
-            },
-            description: "Ultrabook với màn hình OLED tuyệt đẹp, thiết kế cao cấp và hiệu năng vượt trội cho công việc sáng tạo."
-        }
+        description: "Thiết kế gọn gàng, RAM lớn, phù hợp cho sinh viên và nhân viên văn phòng."
+    }
+
     ];
 
     // DOM elements
