@@ -212,7 +212,7 @@ body {
 }
 
 .product-image {
-    width: 100%;
+    width: 50%;
     height: 200px;
     background-color: var(--light-color);
     display: flex;
