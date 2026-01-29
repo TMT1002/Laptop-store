@@ -224,8 +224,8 @@ body {
 .product-image img {
     width: 50%;
     height: 50%;
-    object-fit: contain;
-    /* object-fit: cover; */
+    /* object-fit: contain; */
+    object-fit: cover;
 }
 
 .product-image .placeholder-icon {
